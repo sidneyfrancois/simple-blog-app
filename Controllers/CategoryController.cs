@@ -11,21 +11,35 @@ namespace Blog.Controllers
         [HttpGet("v1/categories")]
         public async Task<IActionResult> GetAsync([FromServices] BlogDataContext context)
         {
-            var categories = await context.Categories.ToListAsync();
-            return Ok(categories);
+            try
+            {
+                var categories = await context.Categories.ToListAsync();
+                return Ok(categories);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, "05X02 - Falha interna no servidor");
+            }
         }
 
         [HttpGet("v1/categories/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromServices] BlogDataContext context, [FromRoute] int id)
         {
-            var category = await context
-                                    .Categories
-                                    .FirstOrDefaultAsync(c => c.Id == id);
+            try
+            {
+                var category = await context
+                                        .Categories
+                                        .FirstOrDefaultAsync(c => c.Id == id);
 
-            if (category == null)
-                return NotFound();
+                if (category == null)
+                    return NotFound();
 
-            return Ok(category);
+                return Ok(category);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, "05X05 - Falha interna no servidor");
+            }
         }
 
         [HttpPost("v1/categories")]
@@ -51,32 +65,58 @@ namespace Blog.Controllers
         [HttpPut("v1/categories/{id:int}")]
         public async Task<IActionResult> PutAsync([FromServices] BlogDataContext context, [FromRoute] int id, [FromBody] Category model)
         {
-            var category = await context.Categories.FirstOrDefaultAsync(c => c.Id == id);
+            try
+            {
+                var category = await context
+                                        .Categories
+                                        .FirstOrDefaultAsync(c => c.Id == id);
 
-            if (category == null) 
-                return NotFound();
+                if (category == null) 
+                    return NotFound();
 
-            category.Name = model.Name;
-            category.Slug = model.Slug;
+                category.Name = model.Name;
+                category.Slug = model.Slug;
 
-            context.Categories.Update(category);
-            await context.SaveChangesAsync();
+                context.Categories.Update(category);
+                await context.SaveChangesAsync();
 
-            return Ok(model);
+                return Ok(model);
+            }
+            catch (DbUpdateException error)
+            {
+                return BadRequest("05XE8 - Não foi possível alterar a categoria");
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, "05X11 - Falha interna no servidor");
+            }
+
         }
 
         [HttpDelete("v1/categories/{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromServices] BlogDataContext context, [FromRoute] int id)
         {
-            var category = await context.Categories.FirstOrDefaultAsync(c => c.Id == id);
+            try
+            {
+                var category = await context.Categories.FirstOrDefaultAsync(c => c.Id == id);
 
-            if (category == null)
-                return NotFound();
+                if (category == null)
+                    return NotFound();
 
-            context.Categories.Remove(category);
-            await context.SaveChangesAsync();
+                context.Categories.Remove(category);
+                await context.SaveChangesAsync();
 
-            return Ok(category);
+                return Ok(category);
+            }
+            catch (DbUpdateException error)
+            {
+                return BadRequest("05XE07 - Não foi possível excluir a categoria");
+            }
+            catch (Exception error)
+            {
+                return StatusCode(500, "05X12 - Falha interna no servidor");
+            }
+
         }
 
     }
