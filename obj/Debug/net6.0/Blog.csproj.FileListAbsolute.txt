@@ -75,3 +75,4 @@ C:\Users\sidne\Documents\CSharp\Blog\bin\Debug\net6.0\runtimes\win\lib\netstanda
 C:\Users\sidne\Documents\CSharp\Blog\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\sidne\Documents\CSharp\Blog\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\sidne\Documents\CSharp\Blog\obj\Debug\net6.0\Blog.csproj.CopyComplete
+C:\Users\sidne\Documents\CSharp\Blog\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

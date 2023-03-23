@@ -6,19 +6,11 @@ namespace Blog.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly TokenService _tokenService;
-
-        public AccountController(TokenService tokenService)
-        {
-            _tokenService = tokenService;
-        }
-
         [HttpPost("v1/login")]
-        public IActionResult Login()
+        public IActionResult Login([FromServices] TokenService tokenService)
         {
-            var token = _tokenService.GenerateToken(null);
-
-            return Ok();
+            var token = tokenService.GenerateToken(null);
+            return Ok(token);
         }
     }
 }
