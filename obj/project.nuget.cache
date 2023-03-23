@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0PNdkOlEkaQudcoXnINSVIO3HPTp5nTSHIEFBQMIz/seGIjUdO/mx+r7ilOyKInjPIZuxDxUwIFHhP6pNBtNEQ==",
+  "dgSpecHash": "sK7HF2H117WlxhJVXJo8yaiuSHIIDQHDkM2zbQFflMa1g3S+xCSP8mCo1nJNemDpUOr3GjI1kafWDFNr7dzz4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\sidne\\Documents\\CSharp\\Blog\\Blog.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "C:\\Users\\sidne\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\sidne\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\sidne\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\sidne\\.nuget\\packages\\secureidentity\\1.0.4\\secureidentity.1.0.4.nupkg.sha512",
     "C:\\Users\\sidne\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\sidne\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\sidne\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
