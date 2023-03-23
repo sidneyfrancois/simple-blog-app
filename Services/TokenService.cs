@@ -18,6 +18,7 @@ namespace Blog.Services
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, "sidney"), // User.Identity.Name
+                    new Claim(ClaimTypes.Role, "user"),
                     new Claim(ClaimTypes.Role, "admin")   // User.IsInRole  
                 }),
                 Expires = DateTime.UtcNow.AddHours(8),
